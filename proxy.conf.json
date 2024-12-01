@@ -1,0 +1,9 @@
+{
+    "/api": {
+      "target": "https://demoefaktura.mfin.gov.rs",
+      "secure": false,
+      "changeOrigin": true,
+      "logLevel": "debug"
+    }
+  }
+  

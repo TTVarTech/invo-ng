@@ -1,0 +1,16 @@
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand mb-0 h1">INVO Service</span>
+      
+      <!-- API Key Input -->
+      <form [formGroup]="apiForm" (ngSubmit)="fetchUnitMeasures()">
+        <label for="apiKey">API Key:</label>
+        <input class="m-1" id="apiKey" type="text" formControlName="apiKey" placeholder="Enter API Key" />
+        <button type="submit" class="m-1 btn btn-success" [disabled]="apiForm.invalid">Set API Key</button>
+    </form>
+      
+      <span class="text-muted" *ngIf="version">Version: {{ version }}</span>
+      <span class="text-danger" *ngIf="!version">Version not available...</span>
+    </div>
+  </nav>
+  

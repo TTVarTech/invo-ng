@@ -4,16 +4,21 @@ import { provideHttpClient } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UnitMeasuresComponent } from './mfin/unit-measures/unit-measures.component';
+import { HealthCheckComponent } from './mfin/health-check/health-check.component';
 
 @NgModule({
 	declarations: [
-		AppComponent
+		AppComponent,
+  UnitMeasuresComponent,
+  HealthCheckComponent
 	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
-		ReactiveFormsModule
+		ReactiveFormsModule,
+		FormsModule
 	],
 	providers: [provideHttpClient()],
 	bootstrap: [AppComponent]

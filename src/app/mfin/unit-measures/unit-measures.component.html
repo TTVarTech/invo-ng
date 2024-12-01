@@ -1,0 +1,33 @@
+<div>
+    <h1>{{ title }}</h1>
+
+    <button (click)="fetchUnitMeasures()" class="m-1 btn btn-success">Fetch Unit Measures</button>
+</div>
+
+<div class="container m-4">
+    @if (unitMeasures) {
+    <h2>Available Unit Measures</h2>
+    <hr>
+    <div class="row">
+        @for (item of unitMeasures; track $index) {
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Code: {{ item.Code }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        Symbol: {{ item.Symbol || 'N/A' }}
+                    </h6>
+                    <p class="card-text">
+                        <strong>Name (English):</strong> {{ item.NameEng }}<br />
+                        <strong>Name (Latin):</strong> {{ item.NameSrbLtn }}<br />
+                        <strong>Name (Cyrillic):</strong> {{ item.NameSrbCyr }}
+                    </p>
+                    <span class="badge bg-success" *ngIf="item.IsOnShortList">On Shortlist</span>
+                    <span class="badge bg-secondary" *ngIf="!item.IsOnShortList">Not on Shortlist</span>
+                </div>
+            </div>
+        </div>
+        }
+    </div>
+    }
+</div>
