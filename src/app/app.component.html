@@ -1,0 +1,24 @@
+<div>
+    <h1>{{ title }}</h1>
+    <form [formGroup]="apiForm" (ngSubmit)="fetchUnitMeasures()">
+      <label for="apiKey">API Key:</label>
+      <input
+        id="apiKey"
+        type="text"
+        formControlName="apiKey"
+        placeholder="Enter API Key"
+      />
+      <button type="submit" [disabled]="apiForm.invalid">Fetch Unit Measures</button>
+    </form>
+  </div>
+  
+  <div *ngIf="unitMeasures; else loading">
+    <h2>Unit Measures</h2>
+    <ul>
+      <li *ngFor="let unit of unitMeasures">{{ unit.name }}</li>
+    </ul>
+  </div>
+  <ng-template #loading>
+    <p>Enter an API key and click the button to fetch unit measures.</p>
+  </ng-template>
+  
