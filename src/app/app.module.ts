@@ -1,18 +1,21 @@
+import { provideHttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { provideHttpClient } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { UnitMeasuresComponent } from './mfin/unit-measures/unit-measures.component';
 import { HealthCheckComponent } from './mfin/health-check/health-check.component';
+import { UnitMeasuresComponent } from './mfin/unit-measures/unit-measures.component';
+import { LawOverviewComponent } from './mfin/invoices/law-overview/law-overview.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
 	declarations: [
 		AppComponent,
-  UnitMeasuresComponent,
-  HealthCheckComponent
+		UnitMeasuresComponent,
+		HealthCheckComponent,
+  LawOverviewComponent
 	],
 	imports: [
 		BrowserModule,
@@ -20,7 +23,7 @@ import { HealthCheckComponent } from './mfin/health-check/health-check.component
 		ReactiveFormsModule,
 		FormsModule
 	],
-	providers: [provideHttpClient()],
+	providers: [provideHttpClient(), provideAnimationsAsync()],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }
