@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { TextDisplayComponent } from '../../../common/text-display/text-display.component';
+import { MfinService } from '../../services/mfin.service';
 
 @Component({
   selector: 'app-law-overview',
@@ -8,32 +11,32 @@ import { Component } from '@angular/core';
   styleUrl: './law-overview.component.scss'
 })
 export class LawOverviewComponent {
+  title: string = "Laws"
+
   displayedColumns: string[] = [
     'ReasonId', 'Key', 'Law', 'Article', 'Paragraph', 'Point', 'Subpoint',
-    'FreeFormNote', 'ActiveFrom', 'ActiveTo', 'Category', 'Text'
+    'FreeFormNote', 'ActiveFrom', 'ActiveTo', 'Category',
+    'TextPreview',  'Text'
   ];
   
   dataSource = [
-    {
-      ReasonId: 1,
-      Key: 'PDV-RS-10-2-1',
-      Law: 'Zakon o Porezu na dodatu vrednost',
-      Article: '10',
-      Paragraph: '2',
-      Point: '1',
-      Subpoint: null,
-      FreeFormNote: null,
-      ActiveFrom: '1900-01-01T00:00:00.0000000+00:00',
-      ActiveTo: null,
-      Category: 'AE',
-      Text: 'something to test'
-    }
   ];
 
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog, private apiService: MfinService) {}
+
+  fetchLaws(): void {
+		this.apiService.getValueAddedTaxExemptionReasonList().subscribe({
+			next: (data) => {
+				this.dataSource = data;
+			},
+			error: (error) => {
+				console.error('Error fetching unit measures:', error);
+			},
+		});
+	}
 
   openDialog(text: string): void {
-    this.dialog.open(ReasonDialogComponent, {
+    this.dialog.open(TextDisplayComponent, {
       data: { text },
       width: '80%',
       height: '80%'

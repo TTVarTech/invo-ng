@@ -1,1 +1,97 @@
-<p>law-overview works!</p>
+<div>
+    <h1>{{ title }}</h1>
+
+    <button (click)="fetchLaws()" class="m-1 btn btn-success">Fetch Unit Measures</button>
+</div>
+
+<div class="table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+  
+      <!-- ReasonId Column -->
+      <ng-container matColumnDef="ReasonId">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Reason Id </th>
+        <td mat-cell *matCellDef="let element"> {{ element.ReasonId }} </td>
+      </ng-container>
+  
+      <!-- Key Column -->
+      <ng-container matColumnDef="Key">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Key </th>
+        <td mat-cell *matCellDef="let element"> {{ element.Key }} </td>
+      </ng-container>
+
+            <!-- Law Column -->
+            <ng-container matColumnDef="Law">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Law </th>
+                <td mat-cell *matCellDef="let element"> {{ element.Law }} </td>
+              </ng-container>
+  
+      <!-- Article Column -->
+      <ng-container matColumnDef="Article">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Article </th>
+        <td mat-cell *matCellDef="let element"> {{ element.Article }} </td>
+      </ng-container>
+  
+      <!-- Paragraph Column -->
+      <ng-container matColumnDef="Paragraph">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Paragraph </th>
+        <td mat-cell *matCellDef="let element"> {{ element.Paragraph }} </td>
+      </ng-container>
+  
+      <!-- Point Column -->
+      <ng-container matColumnDef="Point">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Point </th>
+        <td mat-cell *matCellDef="let element"> {{ element.Point }} </td>
+      </ng-container>
+  
+      <!-- Subpoint Column -->
+      <ng-container matColumnDef="Subpoint">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Subpoint </th>
+        <td mat-cell *matCellDef="let element"> {{ element.Subpoint || 'N/A' }} </td>
+      </ng-container>
+  
+      <!-- FreeFormNote Column -->
+      <ng-container matColumnDef="FreeFormNote">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Free Form Note </th>
+        <td mat-cell *matCellDef="let element"> {{ element.FreeFormNote || 'N/A' }} </td>
+      </ng-container>
+  
+      <!-- ActiveFrom Column -->
+      <ng-container matColumnDef="ActiveFrom">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Active From </th>
+        <td mat-cell *matCellDef="let element"> {{ element.ActiveFrom | date:'mediumDate' }} </td>
+      </ng-container>
+  
+      <!-- ActiveTo Column -->
+      <ng-container matColumnDef="ActiveTo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Active To </th>
+        <td mat-cell *matCellDef="let element"> {{ element.ActiveTo || 'N/A' }} </td>
+      </ng-container>
+  
+      <!-- Category Column -->
+      <ng-container matColumnDef="Category">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Category </th>
+        <td mat-cell *matCellDef="let element"> {{ element.Category }} </td>
+      </ng-container>
+      
+    <!-- Text Preview Column -->
+    <ng-container matColumnDef="TextPreview">
+        <th mat-header-cell *matHeaderCellDef> Text Preview </th>
+        <td mat-cell *matCellDef="let element" class="text-preview">
+          {{ element.Text }}
+        </td>
+      </ng-container>
+      
+      <!-- Text Column -->
+      <ng-container matColumnDef="Text">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="primary" (click)="openDialog(element.Text)">View Text</button>
+        </td>
+      </ng-container>
+  
+      <!-- Header and Row Definitions -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  

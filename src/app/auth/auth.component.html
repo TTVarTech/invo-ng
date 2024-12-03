@@ -1,0 +1,14 @@
+<h3 class="mb-3">Welcome to <strong><i>INVO</i></strong></h3>
+<div class="login-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="form-group mb-3">
+            <label for="sneakyNoodle">Username</label>
+            <input class="form-control" id="sneakyNoodle" formControlName="sneakyNoodle" type="text" autocomplete="off">
+        </div>
+        <div class="form-group mb-3">
+            <label for="jellyShield">Password</label>
+            <input class="form-control" id="jellyShield" formControlName="jellyShield" type="password">
+        </div>
+        <button class="btn btn-primary w-100" type="submit" [disabled]="!loginForm.valid">Login</button>
+    </form>
+</div>
