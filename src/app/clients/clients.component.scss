@@ -1,0 +1,30 @@
+// /* Ensure the parent container takes up full height */
+// .mat-elevation-z8 {
+//     display: flex;
+//     flex-direction: column;
+//     height: 100%; /* Take up the full height of the parent container */
+//   }
+  
+//   /* Table itself should fill the available space */
+//   table {
+//     width: 100%;
+//     flex-grow: 1; /* Make table take up available space */
+//     overflow: hidden;
+//   }
+  
+//   /* Optional: You can limit the header row height and add some padding */
+//   mat-header-row, mat-row {
+//     height: 56px;
+//   }
+  
+//   /* Add a small margin or styling for the paginator if needed */
+//   mat-paginator {
+//     margin-top: 16px;
+//   }
+  /* Ensure dropdown menus are visible and above the next row */
+.mat-mdc-table .dropdown-mendu {
+    position: absolute;
+    z-index: 1050; /* Bootstrap's default z-index for dropdowns */
+    display: block;
+  }
+  

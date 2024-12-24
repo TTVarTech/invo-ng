@@ -14,6 +14,11 @@ import { LawOverviewComponent } from './mfin/invoices/law-overview/law-overview.
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { AuthComponent } from './auth/auth.component';
 import { provideRouter } from '@angular/router';
+import { PanelComponent } from './panel/panel.component';
+import { HeaderComponent } from './panel/header/header.component';
+import { ClientsComponent } from './clients/clients.component';
+import { SuppliersComponent } from './suppliers/suppliers.component';
+import { EInvoiceComponent } from './e-invoice/e-invoice.component';
 
 @NgModule({
 	declarations: [
@@ -21,7 +26,12 @@ import { provideRouter } from '@angular/router';
 		UnitMeasuresComponent,
 		HealthCheckComponent,
   LawOverviewComponent,
-  AuthComponent
+  AuthComponent,
+  PanelComponent,
+  HeaderComponent,
+  ClientsComponent,
+  SuppliersComponent,
+  EInvoiceComponent
 	],
 	imports: [
 		BrowserModule,

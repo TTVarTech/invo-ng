@@ -1,4 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+// html, body { height: 100%; }
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    /* Ensure full height for the document */
+    margin: 0;
+}
+
+// .full-height {
+//     min-height: 100vh;
+//     /* At least 100% of the viewport height */
+//     background-color: #f0f0f0;
+//     /* Example background color */
+// }
+
+.d-flex {
+    display: flex;
+}
+
+.flex-nowrap {
+    flex-wrap: nowrap;
+}

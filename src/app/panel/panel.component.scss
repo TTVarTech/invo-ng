@@ -1,0 +1,6 @@
+.router-container {
+    height: calc(100% - 60px); /* Adjust height to account for <app-header>'s height */
+    overflow: auto; /* Enable scrolling only for the router-outlet container */
+    padding: 16px; /* Optional: Add some padding for better appearance */
+    box-sizing: border-box;
+  }
